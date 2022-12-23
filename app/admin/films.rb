@@ -1,7 +1,7 @@
 ActiveAdmin.register Film do
   menu priority: 1
 
-  permit_params :title, :description, :director, :rating
+  permit_params :title, :description, :director, :rating, :category_id
 
   index do
     selectable_column

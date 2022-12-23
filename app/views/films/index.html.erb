@@ -1,4 +1,5 @@
 <div id="films">
+  <%= render :partial => 'films/search_form' %>
   <% @films.each do |film| %>
     <%= render film %>
     <p> <%= link_to "Show this film", film %> </p>

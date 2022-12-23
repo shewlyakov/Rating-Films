@@ -17,6 +17,8 @@ gem "bootsnap", require: false
 gem "devise"
 gem "activeadmin"
 gem "sass-rails"
+gem "ransack"
+gem "simple_form"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

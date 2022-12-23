@@ -2,7 +2,8 @@ class FilmsController < ApplicationController
   before_action :set_film, only: %i[ show ]
 
   def index
-    @films = Film.all
+    @q = Film.ransack(params[:q])
+    @films = @q.result(distinct: true)
   end
 
   def show
