@@ -6,6 +6,7 @@ ActiveAdmin.register Film do
   index do
     selectable_column
     id_column
+    column :category
     column :title
     column :description
     column :director
