@@ -1,9 +1,20 @@
-<div id="films">
-  <%= render :partial => 'films/search_form' %>
-  <% @films.each do |film| %>
-    <%= render film %>
-    <p> <%= link_to "Show this film", film %> </p>
-  <% end %>
-  <nav><%= paginate @films %></nav>
-  <p> <%= link_to "AdminPanel", admin_user_session_path %> </p>
+<div class="card">
+  <div class="card-header">
+    <h4>Welcome to the best rating films site</h4>
+    <%= render :partial => 'films/search_form' %>
+  </div>
+  <div class="card-body">
+    <table class="table table-stripped table-bordered table-hover">
+      <thead class="thead-dark">
+        Films
+      </thead>
+      <tbody>
+        <% @films.each do |film| %>
+          <%= render film %>
+          <p> <%= link_to "Show this film", film %> </p>
+        <% end %>
+        <nav><%= paginate @films %></nav>
+      </tbody>
+    </table>
+  </div>
 </div>
