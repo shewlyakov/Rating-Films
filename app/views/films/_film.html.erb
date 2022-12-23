@@ -1,27 +1,19 @@
-<div id="<%= dom_id film %>">
-  <p>
-    <strong>Title:</strong>
-    <%= film.title %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= film.description %>
-  </p>
-
-  <p>
-    <strong>Director:</strong>
-    <%= film.director %>
-  </p>
-
-  <p>
-    <strong>Rating:</strong>
-    <%= film.rating %>
-  </p>
-
-  <p>
-    <strong>Category:</strong>
-    <%= film.category.title %>
-  </p>
-
+<div class="card">
+  <div class="card-header">
+    <h4><%= link_to film.title, film %></h4>
+  </div>
+  <div class="card-body">
+    <div class="field form-group">
+      Rating: <%= film.rating %>
+    </div>
+    <div class="field form-group">
+      Description: <%= film.description %>
+    </div>
+    <div class="field form-group">
+      Director: <%= film.director %>
+    </div>
+    <div class="field form-group">
+      Category: <%= film.category.title %>
+    </div>
+  </div>
 </div>

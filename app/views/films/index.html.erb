@@ -1,20 +1,13 @@
 <div class="card">
   <div class="card-header">
-    <h4>Welcome to the best rating films site</h4>
     <%= render :partial => 'films/search_form' %>
   </div>
   <div class="card-body">
     <table class="table table-stripped table-bordered table-hover">
-      <thead class="thead-dark">
-        Films
-      </thead>
-      <tbody>
-        <% @films.each do |film| %>
-          <%= render film %>
-          <p> <%= link_to "Show this film", film %> </p>
-        <% end %>
-        <nav><%= paginate @films %></nav>
-      </tbody>
+      <% @films.each do |film| %>
+        <%= render film %>
+      <% end %>
+      <nav><%= paginate @films %></nav>
     </table>
   </div>
 </div>
