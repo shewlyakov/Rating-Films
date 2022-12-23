@@ -1,4 +1,38 @@
-<%= render @film %>
-<div>
-  <%= link_to "Back to films", films_path %>
+<div class="card">
+  <div class="card-header">
+    <h4><%= link_to @film.title, @film %></h4>
+  </div>
+  <div class="card-body">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-4">
+            <%= image_tag @film.image, :size => "400x600" %>
+            <div class="table-responsive">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td><strong>Rating:</strong></td>
+                    <td><%= @film.rating %></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Description:</strong></td>
+                    <td><%= @film.description %></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Director:</strong></td>
+                    <td><%= @film.director %></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Category:</strong></td>
+                    <td><%= @film.category.title %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
