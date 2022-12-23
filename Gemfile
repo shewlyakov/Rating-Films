@@ -20,6 +20,7 @@ gem "sass-rails"
 gem "ransack"
 gem "simple_form"
 gem "kaminari"
+gem "image_processing"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

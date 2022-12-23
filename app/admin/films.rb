@@ -1,7 +1,7 @@
 ActiveAdmin.register Film do
   menu priority: 1
 
-  permit_params :title, :description, :director, :rating, :category_id
+  permit_params :title, :description, :director, :rating, :category_id, :image
 
   index do
     selectable_column
@@ -14,5 +14,32 @@ ActiveAdmin.register Film do
     # column :created_at
     # column :updated_at
     actions
+  end
+
+  show do
+    attributes_table do
+      row :category
+      row :title
+      row :description
+      row :director
+      row :rating
+      row :image do
+        image_tag film.image, class: 'product-image'
+      end
+      row :created_at
+      row :updated_at
+    end
+  end
+
+  form do |f|
+    f.inputs do
+      f.input :category
+      f.input :title, as: :text
+      f.input :description, as: :string
+      f.input :director
+      f.input :rating
+      f.input :image, as: :file
+    end
+    f.actions
   end
 end
