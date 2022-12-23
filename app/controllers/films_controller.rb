@@ -3,7 +3,7 @@ class FilmsController < ApplicationController
 
   def index
     @q = Film.ransack(params[:q])
-    @films = @q.result(distinct: true)
+    @films = @q.result(distinct: true).page params[:page]
   end
 
   def show
