@@ -20,18 +20,23 @@
               <div class="table-responsive">
                 <table class="table">
                   <tbody>
-                    <tr>
-                      <% if user_signed_in? %>
+                    <% if user_signed_in? %>
+                      <tr>
                         <td><strong>Rating:</strong></td>
                         <td>
-                          <ul class="rating">
+                          <ul class="review">
+                            <% form_id = "film_#{film.id}_review" %>
+                            <%= form_for film.reviews.last || film.reviews.build, :html => {:id => "film_#{film.id}_review", :class => "rating_review_form"} do |f| %>
+                              <%= f.hidden_field :film_id %>
+                              <%= f.hidden_field :ratings, :id => "#{form_id}_ratings" %>
+                            <% end %>
                             <% (1..10).each do |i| %>
-                              <li class="rating_star"></li>
+                              <li class="review_rating" data-ratings="<%= i %>" data-form-id="<%= form_id %>" id="<%= "#{form_id}_#{i}" %>"></li>
                             <% end %>
                           </ul>
                         </td>
-                      <% end %>
-                    </tr>
+                      </tr>
+                    <% end %>
                     <tr>
                       <td><strong>Description:</strong></td>
                       <td><%= film.description %></td>

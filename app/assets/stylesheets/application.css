@@ -2,14 +2,18 @@
   margin: 50px;
 }
 
-.rating {
+.review {
   margin: auto 0;
 }
 
-.rating_star {
+.review_rating {
   background: url('/images/star.gif') 0 0;
   width: 16px;
   height: 16px;
   display: block;
-  float: left;  
+  float: left;
+}
+
+.on {
+  background-position: 0 16px;
 }

@@ -178,6 +178,7 @@ GEM
       timeout
     net-smtp (0.3.3)
       net-protocol
+    nifty-generators (0.4.6)
     nio4r (2.5.8)
     nokogiri (1.13.10-x86_64-linux)
       racc (~> 1.4)
@@ -317,7 +318,9 @@ DEPENDENCIES
   image_processing
   importmap-rails
   jbuilder
+  jquery-rails
   kaminari
+  nifty-generators
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4)

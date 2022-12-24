@@ -2,9 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "reviews/edit", type: :view do
   let(:review) {
-    Review.create!(
-      rating: 1
-    )
+    Review.create!()
   }
 
   before(:each) do
@@ -15,8 +13,6 @@ RSpec.describe "reviews/edit", type: :view do
     render
 
     assert_select "form[action=?][method=?]", review_path(review), "post" do
-
-      assert_select "input[name=?]", "review[rating]"
     end
   end
 end

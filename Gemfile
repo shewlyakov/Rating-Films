@@ -22,6 +22,8 @@ gem "simple_form"
 gem "kaminari"
 gem "image_processing"
 gem "font-awesome-sass"
+gem 'jquery-rails'
+gem 'nifty-generators'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
