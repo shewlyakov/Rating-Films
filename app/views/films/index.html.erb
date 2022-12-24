@@ -1,5 +1,10 @@
 <div class="card">
-  <%= render :partial => 'films/search_form' %>
+  <div class=".col-md-4 .col-md-offset-4" id="options" data-controller="visibility">
+    <button data-action="visibility#toggleTargets">Search</button>
+    <div data-visibility-target="hideable" hidden>
+      <%= render :partial => 'films/search_form' %>
+    </div>
+  </div>
   <% @films.each do |film| %>
     <div class="card-header">
       <h4><%= link_to film.title, film %></h4>
