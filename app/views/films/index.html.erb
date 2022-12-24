@@ -21,8 +21,16 @@
                 <table class="table">
                   <tbody>
                     <tr>
-                      <td><strong>Rating:</strong></td>
-                      <td><%= film.rating %></td>
+                      <% if user_signed_in? %>
+                        <td><strong>Rating:</strong></td>
+                        <td>
+                          <ul class="rating">
+                            <% (1..10).each do |i| %>
+                              <li class="rating_star"></li>
+                            <% end %>
+                          </ul>
+                        </td>
+                      <% end %>
                     </tr>
                     <tr>
                       <td><strong>Description:</strong></td>

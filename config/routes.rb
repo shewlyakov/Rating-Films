@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   root 'films#index'
 
+  devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :films, only: [:index, :show] do
     get '/page/:page', action: :index, on: :collection
   end
-  devise_for :users
+  resources :reviews
 end
