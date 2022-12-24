@@ -7,6 +7,7 @@ class FilmsController < ApplicationController
   end
 
   def show
+    @reviews = Review.all
   end
 
   private
