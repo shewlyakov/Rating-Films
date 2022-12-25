@@ -1,0 +1,15 @@
+<%= search_form_for @q, html: {class: "form-horizontal"} do |f| %>
+  <div class="container text-center">
+    <%= f.search_field :title_cont, placeholder: "Search...", class: "col-md-9" %>
+    <div class="row">
+      <div class="col-md-12">
+        <%= sort_link(@q, :rating, 'Sort by rating', default_order: :desc) %>
+      </div>
+      <div class="col-md-12">
+        <%= sort_link(@q, :updated_at, 'Sort by last added', default_order: :desc) %>
+      </div>
+    </div>
+  </div>
+  <br>
+  <center><%= f.submit "Search", class:"btn btn-secondary" %></center>
+<% end %>

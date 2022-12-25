@@ -1,0 +1,64 @@
+<div class="card">
+  <div class=".col-md-4 .col-md-offset-4" id="options" data-controller="visibility">
+    <button data-action="visibility#toggleTargets">Search</button>
+    <div data-visibility-target="hideable" hidden>
+      <%= render :partial => 'categories/search_form' %>
+    </div>
+  </div>
+  <% @films.each do |film| %>
+    <div class="card-header">
+      <h4><%= link_to film.title, film %></h4>
+    </div>
+    <div class="card-body">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-4">
+              <%= image_tag film.image, :size => "200x300" %>
+            </div>
+            <div class="col-md-7 col-md-offset-1">
+              <div class="table-responsive">
+                <table class="table">
+                  <tbody>
+                    <% if user_signed_in? %>
+                      <tr>
+                        <td><strong>Rating:</strong></td>
+                        <td>
+                          <ul class="review">
+                            <% form_id = "film_#{film.id}_review" %>
+                            <%= form_for film.reviews.find_by(user_id: current_user.id) || film.reviews.build, :html => {:id => "film_#{film.id}_review", :class => "rating_review_form"} do |f| %>
+                              <%= f.hidden_field :film_id %>
+                              <%= f.hidden_field :ratings, :id => "#{form_id}_ratings" %>
+                            <% end %>
+                            <% (1..10).each do |i| %>
+                              <li class="review_rating" data-ratings="<%= i %>" data-form-id="<%= form_id %>" id="<%= "#{form_id}_#{i}" %>"></li>
+                            <% end %>
+                          </ul>
+                        </td>
+                      </tr>
+                    <% end %>
+                    <tr>
+                      <td><strong>Description:</strong></td>
+                      <td><%= film.description %></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Director:</strong></td>
+                      <td><%= film.director %></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Category:</strong></td>
+                      <td><%= film.category.title %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="center">
+  <%= paginate @films %>
+</div>

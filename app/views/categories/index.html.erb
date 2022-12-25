@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-body">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <% @categories.each do |category| %>
+            <div class="col-sm-6 col-md-3">
+              <div class="thumbnail">
+                <%= link_to (image_tag category.image, :size => "200x300", class: 'image'), category %>
+              </div>
+            </div>
+            <br>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

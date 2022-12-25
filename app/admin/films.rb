@@ -34,10 +34,9 @@ ActiveAdmin.register Film do
   form do |f|
     f.inputs do
       f.input :category
-      f.input :title, as: :text
-      f.input :description, as: :string
+      f.input :title, as: :string
+      f.input :description, as: :text
       f.input :director
-      f.input :rating
       f.input :image, as: :file
     end
     f.actions

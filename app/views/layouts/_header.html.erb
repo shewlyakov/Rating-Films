@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <div class="navbar-nav mr-auto">
         <a class="nav-link"><%= link_to "Home", root_path, class:"nav-link" %></a>
-        <a class="nav-link"><%= link_to "Categories", root_path, class:"nav-link" %></a>
+        <a class="nav-link"><%= link_to "Categories", categories_path, class:"nav-link" %></a>
         <a class="nav-link"><%= link_to "AdminPanel", admin_user_session_path, class:"nav-link" %></a>
         <% if user_signed_in? %>
           <a class="nav-link">Welcome, <%= current_user.email %></a>
