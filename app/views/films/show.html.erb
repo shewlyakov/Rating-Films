@@ -1,18 +1,20 @@
 <div class="card">
   <div class="card-header">
-    <h4><%= link_to @film.title, @film %></h4>
+    <h4><%= @film.title %></h4>
   </div>
   <div class="card-body">
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-6">
             <%= image_tag @film.image, :size => "400x600" %>
+          </div>
+          <div class="col-md-6 col-md-offset-1">
             <div class="table-responsive">
               <table class="table">
                 <tbody>
                   <tr>
-                    <td><strong>Rating:</strong></td>
+                    <td><strong>Average rating:</strong></td>
                     <td><%= @film.reviews.average(:ratings) %></td>
                   </tr>
                   <tr>
@@ -27,6 +29,7 @@
                     <td><strong>Category:</strong></td>
                     <td><%= @film.category.title %></td>
                   </tr>
+                  
                 </tbody>
               </table>
             </div>

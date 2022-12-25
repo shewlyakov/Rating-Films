@@ -2,6 +2,10 @@
   margin: 50px;
 }
 
+.card-header {
+  text-align: center;
+}
+
 .review {
   margin: auto 0;
 }
