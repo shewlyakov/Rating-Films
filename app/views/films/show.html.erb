@@ -15,7 +15,7 @@
                 <tbody>
                   <tr>
                     <td><strong>Average rating:</strong></td>
-                    <td><%= @film.reviews.average(:ratings) %></td>
+                    <td><%= @film.reviews.average(:ratings).round(1) %></td>
                   </tr>
                   <tr>
                     <td><strong>Category:</strong></td>
