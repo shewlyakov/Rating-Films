@@ -18,18 +18,17 @@
                     <td><%= @film.reviews.average(:ratings) %></td>
                   </tr>
                   <tr>
-                    <td><strong>Description:</strong></td>
-                    <td><%= @film.description %></td>
+                    <td><strong>Category:</strong></td>
+                    <td><%= @film.category.title %></td>
                   </tr>
                   <tr>
                     <td><strong>Director:</strong></td>
                     <td><%= @film.director %></td>
                   </tr>
                   <tr>
-                    <td><strong>Category:</strong></td>
-                    <td><%= @film.category.title %></td>
+                    <td><strong>Description:</strong></td>
+                    <td><%= @film.description %></td>
                   </tr>
-                  
                 </tbody>
               </table>
             </div>
