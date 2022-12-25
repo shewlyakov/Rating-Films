@@ -26,7 +26,7 @@
                         <td>
                           <ul class="review">
                             <% form_id = "film_#{film.id}_review" %>
-                            <%= form_for film.reviews.last || film.reviews.build, :html => {:id => "film_#{film.id}_review", :class => "rating_review_form"} do |f| %>
+                            <%= form_for film.reviews.find_by(user_id: current_user.id) || film.reviews.build, :html => {:id => "film_#{film.id}_review", :class => "rating_review_form"} do |f| %>
                               <%= f.hidden_field :film_id %>
                               <%= f.hidden_field :ratings, :id => "#{form_id}_ratings" %>
                             <% end %>
