@@ -20,6 +20,10 @@
                       <td><strong>Average rating:</strong></td>
                       <td><%= @film.reviews.average(:ratings).round(1) %></td>
                     </tr>
+                    <tr>
+                      <td><strong>User Reviews:</strong></td>
+                      <td><%= @film.reviews.count/2 %></td>
+                    </tr>
                   <% end %>
                   <tr>
                     <td><strong>Category:</strong></td>
