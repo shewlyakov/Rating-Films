@@ -18,7 +18,7 @@
                   <% if @film.reviews.present? %>
                     <tr>
                       <td><strong>Average rating:</strong></td>
-                      <td><%= @film.reviews.average(:ratings).round(1) %></td>
+                      <td><%= @film.reviews.average(:ratings).round(1) %> / 10</td>
                     </tr>
                     <tr>
                       <td><strong>User Reviews:</strong></td>

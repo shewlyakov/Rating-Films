@@ -1,20 +1,17 @@
 <div class="card">
   <div class="card-header">
-    <h4>Categories</h4>    
+    <h4>Categories</h4>
   </div>
   <div class="card-body">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="row">
-          <% @categories.each do |category| %>
-            <div class="col-sm-6 col-md-3">
-              <div class="thumbnail">
-                <%= link_to (image_tag category.image, :size => "200x300", class: 'image'), category %>
-              </div>
+    <div class="container text-center">
+      <div class="row">
+        <% @categories.each do |category| %>
+          <div class="col-md-4">
+            <div class="category">
+              <%= link_to (image_tag category.image, class: 'image'), category %>
             </div>
-            <br>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
