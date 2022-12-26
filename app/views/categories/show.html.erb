@@ -1,8 +1,12 @@
 <div class="card">
-  <div class=".col-md-4 .col-md-offset-4" id="options" data-controller="visibility">
-    <button data-action="visibility#toggleTargets">Search</button>
-    <div data-visibility-target="hideable" hidden>
-      <%= render :partial => 'categories/search_form' %>
+  <div>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <button type="button" class="btn btn-secondary" id="hider">Hide Filter</button>
+    <button type="button" class="btn btn-secondary" id="shower">Show Filter</button>
+    <div>
+      <filter class="col-md-12" style="display:none">
+        <%= render :partial => 'films/search_form' %>
+      </filter>
     </div>
   </div>
   <% @films.each do |film| %>
@@ -14,7 +18,7 @@
         <div class="panel-body">
           <div class="row">
             <div class="col-md-4">
-              <%= image_tag film.image, :size => "200x300" %>
+              <%= link_to (image_tag film.image, :size => "200x300"), film %>
             </div>
             <div class="col-md-7 col-md-offset-1">
               <div class="table-responsive">
@@ -22,7 +26,11 @@
                   <tbody>
                     <% if user_signed_in? %>
                       <tr>
+                        <% if film.reviews.find_by(user_id: current_user.id).present? %>
+                        <td><strong>Your raiting:</strong></td>
+                        <% else %>
                         <td><strong>Rate this film!</strong></td>
+                        <% end %>
                         <td>
                           <ul class="review">
                             <% form_id = "film_#{film.id}_review" %>
