@@ -22,7 +22,11 @@
                   <tbody>
                     <% if user_signed_in? %>
                       <tr>
+                        <% if film.reviews.find_by(user_id: current_user.id).present? %>
+                        <td><strong>Your raiting:</strong></td>
+                        <% else %>
                         <td><strong>Rate this film!</strong></td>
+                        <% end %>
                         <td>
                           <ul class="review">
                             <% form_id = "film_#{film.id}_review" %>
