@@ -1,3 +1,5 @@
+<link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+<script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
 <div class="card">
   <div class="card-header">
     <h4><%= @film.title %></h4>
@@ -13,10 +15,12 @@
             <div class="table-responsive">
               <table class="table">
                 <tbody>
-                  <tr>
-                    <td><strong>Average rating:</strong></td>
-                    <td><%= @film.reviews.average(:ratings).round(1) %></td>
-                  </tr>
+                  <% if @film.reviews.present? %>
+                    <tr>
+                      <td><strong>Average rating:</strong></td>
+                      <td><%= @film.reviews.average(:ratings).round(1) %></td>
+                    </tr>
+                  <% end %>
                   <tr>
                     <td><strong>Category:</strong></td>
                     <td><%= @film.category.title %></td>
@@ -29,12 +33,19 @@
                     <td><strong>Description:</strong></td>
                     <td><%= @film.description %></td>
                   </tr>
+                  <tr>
+                    <td><strong>Watch trailer:</strong></td>
+                  </tr>
                 </tbody>
               </table>
             </div>
+            <video id="my-video" class="video-js" controls preload="auto" width="450" height="264" poster="<%= url_for(@film.thumbnail) %>" data-setup="{}">
+              <source src="<%= url_for(@film.trailer) %>" type="video/mp4" />
+            </video>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>

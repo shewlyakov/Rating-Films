@@ -6,4 +6,6 @@ class Film < ApplicationRecord
   paginates_per 10
 
   has_one_attached :image
+  has_one_attached :trailer
+  has_one_attached :thumbnail
 end
