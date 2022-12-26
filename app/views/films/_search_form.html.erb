@@ -1,8 +1,10 @@
 <%= search_form_for @q, html: {class: "form-horizontal"} do |f| %>
+  <br>
   <div class="container text-center">
-    <%= f.search_field :title_cont, placeholder: "Search...", class: "col-md-9" %>
-
     <div class="row">
+      <div class="col-md-12">
+        <%= f.search_field :title_cont, placeholder: "Search...", class: "col-md-9" %>
+      </div>
       <div class="col-md-12">
         <h6>Choose Category</h6>
         <%= f.select :category_id_eq, options_from_collection_for_select(Category.all, "id", "title"), include_blank: true, label: "Select Category" %>
@@ -13,8 +15,10 @@
       <div class="col-md-12">
         <%= sort_link(@q, :updated_at, 'Sort by last added', default_order: :desc) %>
       </div>
+      <div class="col-md-12">
+        <%= f.submit "Search", class:"btn btn-secondary" %>
+      </div>
     </div>
   </div>
   <br>
-  <center><%= f.submit "Search", class:"btn btn-secondary" %></center>
 <% end %>

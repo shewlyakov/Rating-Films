@@ -34,3 +34,15 @@ $(function() {
     set_ratings(form_id, ratings);
   });
 });
+
+$( "#hider" ).click(function() {
+  $( "filter" ).hide(function() {
+    $( this ).prev().hide();
+  });
+});
+
+$( "#shower" ).click(function() {
+  $( "filter" ).show(function() {
+    $( this ).prev().show();
+  });
+});
