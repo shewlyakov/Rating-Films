@@ -13,6 +13,4 @@ test:
 
 production:
   <<: *default
-  database: RatingFilms_production
-  username: RatingFilms
-  password: <%= ENV["RATINGFILMS_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
