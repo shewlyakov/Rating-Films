@@ -1,4 +1,4 @@
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 Category.create([
     { title: 'Drama', image_url: 'category_drama.jpg'},
     { title: 'Crime', image_url: 'category_crime.jpg'},
