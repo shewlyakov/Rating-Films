@@ -2,5 +2,5 @@ class Review < ApplicationRecord
   belongs_to :film
   belongs_to :user
 
-  validates :ratings, :user_id, :film_id, presence: true 
+  validates_presence_of :ratings, :user_id, :film_id
 end
