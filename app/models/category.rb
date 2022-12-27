@@ -3,7 +3,7 @@ class Category < ApplicationRecord
 
   has_one_attached :image
 
-  validates :title, :image, presence: true
+  validates_presence_of :title, :image
 
   paginates_per 10
 

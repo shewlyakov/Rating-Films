@@ -7,8 +7,8 @@ class Film < ApplicationRecord
   has_one_attached :trailer
   has_one_attached :thumbnail
 
-  validates :title, length: { minimum: 3 }, presence: true
-  validates :description, :director, :category_id, :image, :trailer, :thumbnail, presence: true
+  validates_length_of :title, minimum: 3
+  validates_presence_of :title, :description, :director, :category_id, :image, :trailer, :thumbnail
 
   paginates_per 5
 
