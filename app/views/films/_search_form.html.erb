@@ -10,9 +10,6 @@
         <%= f.select :category_id_eq, options_from_collection_for_select(Category.all, "id", "title"), include_blank: true, label: "Select Category" %>
       </div>
       <div class="col-md-12">
-        <%= sort_link(@q, :rating, 'Sort by rating', default_order: :desc) %>
-      </div>
-      <div class="col-md-12">
         <%= sort_link(@q, :updated_at, 'Sort by last added', default_order: :desc) %>
       </div>
       <div class="col-md-12">
