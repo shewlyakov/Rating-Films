@@ -3,11 +3,15 @@ class Film < ApplicationRecord
 
   belongs_to :category
 
-  paginates_per 5
-
   has_one_attached :image
   has_one_attached :trailer
   has_one_attached :thumbnail
+
+  validates :title, length: { minimum: 3 }, presence: true
+  validates :description, :director, :category_id, :image, :trailer, :thumbnail, presence: true
+
+  paginates_per 5
+
 
   def image_url=(image_file)
     image.attach(io: File.open('public/images/' + image_file), filename: image_file)
