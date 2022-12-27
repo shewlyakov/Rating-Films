@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get '/page/:page', action: :index, on: :collection
   end
 
-  resources :categories do
+  resources :categories, only: [:index, :show] do
     get '/page/:page', action: :show, on: :collection
   end
 
