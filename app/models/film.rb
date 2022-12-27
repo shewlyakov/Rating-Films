@@ -3,7 +3,7 @@ class Film < ApplicationRecord
 
   belongs_to :category
 
-  paginates_per 10
+  paginates_per 5
 
   has_one_attached :image
   has_one_attached :trailer

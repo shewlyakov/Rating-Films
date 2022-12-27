@@ -10,7 +10,6 @@ ActiveAdmin.register Film do
     column :title
     column :description
     column :director
-    column :rating
     # column :created_at
     # column :updated_at
     actions
@@ -22,7 +21,6 @@ ActiveAdmin.register Film do
       row :title
       row :description
       row :director
-      row :rating
       row :image do
         image_tag film.image, class: 'product-image'
       end
