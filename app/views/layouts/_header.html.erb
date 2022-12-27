@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
   <div class="container-fluid">
     <a class="navbar-brand" <%= link_to "Rating Films", root_path %> </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,18 +8,17 @@
       <div class="navbar-nav mr-auto">
         <a class="nav-link"><%= link_to "Home", root_path, class:"nav-link" %></a>
         <a class="nav-link"><%= link_to "Categories", categories_path, class:"nav-link" %></a>
-        <a class="nav-link"><%= link_to "AdminPanel", admin_user_session_path, class:"nav-link" %></a>
-        <% if user_signed_in? %>
-          <a class="nav-link">Welcome, <%= current_user.email %></a>
-          <a class="nav-link"><%= link_to 'Edit profile', edit_user_registration_path, class:"nav-link" %></a>
-          <a class="nav-link"><%= link_to 'Log out', destroy_user_session_path, :method => :get, class:"nav-link" %></a>
-        <% else %>
-          <a class="nav-link">
-            <%= link_to 'Log in', new_user_session_path, class:"nav-link" %>&nbsp&nbsp&nbsp
-            <%= link_to 'Registration', new_user_registration_path, class:"nav-link" %>
-          </a>
-        <% end %>
+        <a class="nav-link"><%= link_to "Admin Panel", admin_user_session_path, class:"nav-link" %></a>
       </div>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <% if user_signed_in? %>
+          <a class="p-2"><%= link_to current_user.name, edit_user_registration_path %></a>
+          <a class="p-2"><%= link_to 'Log out', destroy_user_session_path, :method => :get %></a>
+        <% else %>
+          <a class="p-2"><%= link_to 'Log in', new_user_session_path %></a>
+          <a class="p-2"><%= link_to 'Registration', new_user_registration_path %></a>
+        <% end %>
+      </nav>
     </div>
   </div>
 </nav>
